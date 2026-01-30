@@ -1,0 +1,1 @@
+ALTER TABLE `portfolio_comments` ADD `parent_id` int;

@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1769778222443,
+      "tag": "0000_striped_silver_sable",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1769778285185,
+      "tag": "0001_productive_meteorite",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1769784722924,
+      "tag": "0002_peaceful_inhumans",
+      "breakpoints": true
+    }
+  ]
+}
