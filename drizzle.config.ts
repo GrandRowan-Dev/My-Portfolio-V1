@@ -1,19 +1,17 @@
 import { defineConfig } from "drizzle-kit";
 
-// 1. Render ကပေးတဲ့ URL ကို ယူမယ်
-// 2. ?ssl=... ပါနေရင် ဖြတ်ထုတ်လိုက်မယ် (ဒါမှ Offset Error မတက်မှာပါ)
-const cleanUrl = (process.env.DATABASE_URL || "").split("?")[0];
-
 export default defineConfig({
   schema: "./drizzle/schema.ts",
   out: "./drizzle",
   dialect: "mysql",
   dbCredentials: {
-    url: cleanUrl, // Link အသန့်ကိုပဲ သုံးမယ်
+    // Render ကပေးတဲ့ URL အသန့်ကို ယူမယ်
+    url: process.env.DATABASE_URL!,
     
-    // SSL ကို ဒီမှာ သီးသန့် Code အနေနဲ့ ဖွင့်ပေးလိုက်မယ်
+    // ပြီးမှ SSL ကို ဒီနေရာမှာ Code နဲ့ သီးသန့်ဖွင့်မယ်
+    // ဒါဆိုရင် URL parsing error လုံးဝ မတက်တော့ပါဘူး
     ssl: {
-      rejectUnauthorized: true // Render/Production မှာ true ထားတာ လုံခြုံပါတယ်
-    }
+      rejectUnauthorized: true,
+    },
   },
 });
